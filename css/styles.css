@@ -1,0 +1,1530 @@
+/* ================================================================
+   INVITACIÓN DE BODA · Steven & Pame
+   styles.css — Organizado por secciones
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   1. TOKENS DE DISEÑO (Design Tokens)
+   ---------------------------------------------------------------- */
+:root {
+  --primary:             #63A1F8;
+  --primary-dark:        #315F9F;
+  --primary-light:       #DCEBFF;
+  --primary-extra-light: #F4F8FF;
+  --paper:               #FCFBF8;
+  --white:               #FFFFFF;
+  --body-text:           #315B87;
+
+  --shadow-soft: 0 4px 24px rgba(49, 95, 159, 0.12), 0 1px 6px rgba(49, 95, 159, 0.08);
+  --shadow-card: 0 8px 40px rgba(49, 95, 159, 0.15), 0 2px 8px rgba(49, 95, 159, 0.08);
+  --shadow-lift: 0 16px 60px rgba(49, 95, 159, 0.18), 0 4px 16px rgba(49, 95, 159, 0.10);
+
+  --radius-card: 8px;
+  --radius-btn:  30px;
+
+  --font-cali:   'Great Vibes', cursive;
+  --font-serif:  'Cormorant Garamond', Georgia, serif;
+  --font-sans:   'Montserrat', Arial, sans-serif;
+
+  --max-w: 520px;
+  --pad-x: 24px;
+}
+
+/* ----------------------------------------------------------------
+   2. RESET Y BASE
+   ---------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--body-text);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* ----------------------------------------------------------------
+   3. LAYOUT GENERAL
+   ---------------------------------------------------------------- */
+.section-portada,
+.section-musica,
+.section-invitacion,
+.section-frase,
+.section-itinerario,
+.section-monograma,
+.section-dresscode,
+.section-foto-pareja,
+.section-regalos,
+.section-cuenta,
+.section-confirmacion,
+.section-final {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedor central para secciones con padding */
+.section-musica .card-paper,
+.section-itinerario .card-paper,
+.section-dresscode .dresscode-card,
+.section-regalos .card-paper,
+.section-cuenta .cuenta-inner {
+  width: 100%;
+  max-width: var(--max-w);
+}
+
+/* ----------------------------------------------------------------
+   4. TARJETA DE PAPEL (componente reutilizable)
+   ---------------------------------------------------------------- */
+.card-paper {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  /* Textura de papel simulada con gradientes */
+  background-image:
+    linear-gradient(135deg, rgba(99,161,248,0.03) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(99,161,248,0.03) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(99,161,248,0.03) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(99,161,248,0.03) 25%, transparent 25%);
+  background-size: 8px 8px;
+  background-color: var(--white);
+}
+
+/* ----------------------------------------------------------------
+   5. BOTONES
+   ---------------------------------------------------------------- */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 32px;
+  background: var(--primary);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  border-radius: var(--radius-btn);
+  border: none;
+  box-shadow: 0 4px 16px rgba(99, 161, 248, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primario:hover,
+.btn-primario:focus-visible {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(49, 95, 159, 0.35);
+  outline: 3px solid var(--primary-light);
+}
+
+.btn-primario:active {
+  transform: translateY(0);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-ubicacion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  border-radius: var(--radius-btn);
+  border: 1.5px solid var(--primary);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  margin-top: 10px;
+}
+
+.btn-ubicacion:hover,
+.btn-ubicacion:focus-visible {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-1px);
+  outline: 3px solid var(--primary-light);
+}
+
+/* ----------------------------------------------------------------
+   6. ANIMACIONES DE APARICIÓN (reveal)
+   ---------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ----------------------------------------------------------------
+   7. SECCIÓN 1 — PORTADA FOTOGRÁFICA
+   ---------------------------------------------------------------- */
+.section-portada {
+  background: var(--primary-extra-light);
+  min-height: 70svh;
+  padding: 0;
+}
+
+.portada-inner {
+  width: 100%;
+  max-width: var(--max-w);
+  position: relative;
+  margin: 0 auto;
+}
+
+.portada-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+
+.portada-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.portada-svg-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.portada-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(49, 95, 159, 0.15) 65%,
+    rgba(49, 95, 159, 0.55) 100%
+  );
+}
+
+.portada-names {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px var(--pad-x) 48px;
+  text-align: center;
+  z-index: 2;
+}
+
+.portada-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.portada-title {
+  font-family: var(--font-cali);
+  font-size: clamp(3rem, 12vw, 5.5rem);
+  font-weight: 400;
+  color: var(--white);
+  text-shadow: 0 2px 20px rgba(49, 95, 159, 0.4);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.portada-date {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ----------------------------------------------------------------
+   8. SECCIÓN 2 — REPRODUCTOR DE MÚSICA
+   ---------------------------------------------------------------- */
+.section-musica {
+  padding: 64px var(--pad-x);
+  background: var(--paper);
+}
+
+.music-card {
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.music-label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.music-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.music-artwork svg {
+  width: 72px;
+  height: 72px;
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.music-song-title {
+  font-family: var(--font-cali);
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+}
+
+.music-artist {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--primary);
+  letter-spacing: 0.12em;
+  font-weight: 400;
+}
+
+.music-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.music-time {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  color: var(--body-text);
+  min-width: 28px;
+  text-align: center;
+}
+
+.music-progress {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  background: var(--primary-light);
+  outline: none;
+  cursor: pointer;
+}
+
+.music-progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 2px 6px rgba(99, 161, 248, 0.4);
+  cursor: pointer;
+}
+
+.music-progress::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: none;
+  cursor: pointer;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.music-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+  border-radius: 50%;
+  transition: transform 0.15s ease, opacity 0.15s;
+}
+
+.music-btn:focus-visible {
+  outline: 3px solid var(--primary-light);
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+.music-btn-sm {
+  width: 44px;
+  height: 44px;
+}
+
+.music-btn-sm svg {
+  width: 24px;
+  height: 24px;
+}
+
+.music-btn-main {
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(99, 161, 248, 0.4);
+}
+
+.music-btn-main svg {
+  width: 22px;
+  height: 22px;
+}
+
+.music-btn-main:hover {
+  background: var(--primary-dark);
+  transform: scale(1.08);
+}
+
+.music-btn:disabled,
+.music-btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.music-volume-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.volume-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.music-volume {
+  flex: 1;
+  height: 3px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  background: var(--primary-light);
+  outline: none;
+  cursor: pointer;
+}
+
+.music-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+.music-volume::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: none;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------------
+   9. SECCIÓN 3 — SOBRE + TARJETA DE INVITACIÓN
+   ---------------------------------------------------------------- */
+.section-invitacion {
+  padding: 80px var(--pad-x) 100px;
+  background: var(--primary-extra-light);
+}
+
+.sobre-container {
+  width: 100%;
+  max-width: var(--max-w);
+  position: relative;
+  padding-top: 40px;
+}
+
+/* ── Sobre ── */
+.sobre {
+  width: 100%;
+  position: relative;
+}
+
+.sobre-body {
+  width: 100%;
+  background: var(--primary);
+  border-radius: 4px 4px 8px 8px;
+  padding-top: 120px;
+  padding-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+}
+
+/* Solapa superior */
+.sobre-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-left: 50% solid transparent;
+  border-right: 50% solid transparent;
+  border-top: 100px solid #4E8FE0;
+  z-index: 2;
+}
+
+/* Base inferior del sobre */
+.sobre-flap-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-left: 50% solid transparent;
+  border-right: 50% solid transparent;
+  border-bottom: 60px solid #3B7AD4;
+  z-index: 1;
+}
+
+/* Forro interior del sobre */
+.sobre-lining {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+}
+
+/* Sello del sobre */
+.sello {
+  position: absolute;
+  top: 64px;
+  right: 28px;
+  z-index: 10;
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 2px 6px rgba(49, 95, 159, 0.3));
+}
+
+/* ── Tarjeta sobre el sobre ── */
+.tarjeta-invitacion {
+  position: relative;
+  z-index: 5;
+  margin: 0 16px;
+  margin-top: -60px;
+  background: var(--white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lift);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(99,161,248,0.04) 27px,
+      rgba(99,161,248,0.04) 28px
+    );
+}
+
+.tarjeta-marco {
+  position: relative;
+  padding: 48px 36px;
+}
+
+/* Esquinas decorativas */
+.esquina {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--primary);
+  border-style: solid;
+}
+
+.esquina-tl {
+  top: 16px;
+  left: 16px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.esquina-tr {
+  top: 16px;
+  right: 16px;
+  border-width: 1.5px 1.5px 0 0;
+}
+
+.esquina-bl {
+  bottom: 16px;
+  left: 16px;
+  border-width: 0 0 1.5px 1.5px;
+}
+
+.esquina-br {
+  bottom: 16px;
+  right: 16px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+.tarjeta-inner {
+  text-align: center;
+}
+
+.tarjeta-padres {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  color: var(--body-text);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.tarjeta-divider {
+  margin: 16px auto;
+  max-width: 200px;
+}
+
+.tarjeta-honor {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--body-text);
+  text-transform: uppercase;
+  margin: 16px 0 20px;
+}
+
+.tarjeta-novio,
+.tarjeta-novia {
+  font-family: var(--font-cali);
+  font-size: clamp(2.8rem, 10vw, 4rem);
+  font-weight: 400;
+  color: var(--primary-dark);
+  line-height: 1;
+}
+
+.tarjeta-amp {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  color: var(--primary);
+  margin: 8px 0;
+  font-style: italic;
+}
+
+.tarjeta-fecha {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--primary-dark);
+  margin: 20px 0 8px;
+}
+
+.tarjeta-hora,
+.tarjeta-lugar {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--body-text);
+  margin: 4px 0;
+  font-style: italic;
+}
+
+.itinerario-item-ubicacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-ubicacion {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------------------------------
+   10. SECCIÓN 4 — FRASE ROMÁNTICA
+   ---------------------------------------------------------------- */
+.section-frase {
+  padding: 80px var(--pad-x);
+  background: var(--paper);
+}
+
+.frase-wrap {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.frase-ornamento svg {
+  width: 120px;
+  height: 20px;
+}
+
+.frase-texto {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 3.5vw, 1.25rem);
+  font-style: italic;
+  color: var(--primary-dark);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------------
+   11. SECCIÓN 5 — ITINERARIO
+   ---------------------------------------------------------------- */
+.section-itinerario {
+  padding: 64px var(--pad-x) 80px;
+  background: var(--primary-extra-light);
+}
+
+.itinerario-card {
+  padding: 48px 36px;
+}
+
+.itinerario-titulo {
+  font-family: var(--font-cali);
+  font-size: clamp(2.4rem, 8vw, 3.2rem);
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.itinerario-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.itinerario-icono {
+  flex-shrink: 0;
+  width: 60px;
+}
+
+.itinerario-icono svg {
+  width: 60px;
+  height: 70px;
+}
+
+.itinerario-info {
+  flex: 1;
+}
+
+.itinerario-nombre {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.itinerario-hora {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.itinerario-lugar {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--body-text);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.itinerario-separador {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--primary-light), transparent);
+  margin: 0 -8px;
+}
+
+/* ----------------------------------------------------------------
+   12. SECCIÓN 6 — MONOGRAMA DECORATIVO
+   ---------------------------------------------------------------- */
+.section-monograma {
+  padding: 0;
+  background: var(--paper);
+  overflow: visible;
+  z-index: 2;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+.monograma-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px var(--pad-x);
+}
+
+.monograma-oval {
+  filter: drop-shadow(0 12px 40px rgba(99, 161, 248, 0.35));
+}
+
+.monograma-svg {
+  width: clamp(160px, 42vw, 200px);
+  height: auto;
+}
+
+/* ----------------------------------------------------------------
+   13. SECCIÓN 7 — DRESS CODE
+   ---------------------------------------------------------------- */
+.section-dresscode {
+  padding: 100px var(--pad-x) 80px;
+  background: var(--paper);
+}
+
+.dresscode-container {
+  width: 100%;
+  max-width: var(--max-w);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.dresscode-oval-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  margin-bottom: -24px;
+}
+
+.dresscode-oval {
+  background: var(--primary);
+  border-radius: 50%;
+  width: 160px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(99, 161, 248, 0.4);
+}
+
+.dresscode-oval-text {
+  font-family: var(--font-cali);
+  font-size: 1.6rem;
+  color: var(--white);
+  line-height: 1;
+}
+
+/* Borla decorativa */
+.borla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -4px;
+}
+
+.borla-nudo {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.borla-cuerda {
+  width: 2px;
+  height: 24px;
+  background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+}
+
+.borla-flecos {
+  display: flex;
+  gap: 3px;
+}
+
+.borla-flecos span {
+  display: block;
+  width: 1.5px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+  border-radius: 0 0 2px 2px;
+}
+
+.dresscode-card {
+  width: 100%;
+  padding: 56px 36px 40px;
+  text-align: center;
+  border-radius: var(--radius-card);
+}
+
+.dresscode-tipo {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.dresscode-desc {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--body-text);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.dresscode-colores {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.dresscode-color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.dresscode-circulo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(49, 95, 159, 0.2);
+  border: 2px solid rgba(255,255,255,0.8);
+}
+
+.dresscode-color-nombre {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--body-text);
+}
+
+/* ----------------------------------------------------------------
+   14. SECCIÓN 8 — SEGUNDA FOTO
+   ---------------------------------------------------------------- */
+.section-foto-pareja {
+  padding: 80px var(--pad-x) 0;
+  background: var(--primary-extra-light);
+  gap: 40px;
+}
+
+.frase-wrap-alt {
+  max-width: 380px;
+}
+
+.foto-pareja-wrap {
+  width: 100%;
+  max-width: var(--max-w);
+  position: relative;
+  overflow: hidden;
+}
+
+.foto-pareja-img {
+  width: 100%;
+  height: auto;
+  max-height: 680px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(20%) contrast(1.05);
+}
+
+.foto-placeholder {
+  width: 100%;
+  aspect-ratio: 520/680;
+  background: var(--primary-light);
+}
+
+/* ----------------------------------------------------------------
+   15. SECCIÓN 9 — REGALOS
+   ---------------------------------------------------------------- */
+.section-regalos {
+  padding: 80px var(--pad-x);
+  background: var(--paper);
+}
+
+.regalos-container {
+  width: 100%;
+  max-width: var(--max-w);
+}
+
+.regalos-card {
+  padding: 40px 36px 48px;
+  text-align: center;
+}
+
+.regalos-sello {
+  position: absolute;
+  top: -28px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+}
+
+.regalos-titulo {
+  font-family: var(--font-cali);
+  font-size: clamp(2.4rem, 8vw, 3.2rem);
+  color: var(--primary-dark);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.regalos-texto {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--body-text);
+  line-height: 1.9;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.regalos-mesa-card {
+  margin-top: 32px;
+  background: var(--primary-extra-light);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--primary-light);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.regalos-mesa-titulo {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.regalos-mesa-tienda {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.regalos-mesa-num {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--body-text);
+  margin-top: 4px;
+}
+
+/* ----------------------------------------------------------------
+   16. SECCIÓN 10 — CUENTA REGRESIVA
+   ---------------------------------------------------------------- */
+.section-cuenta {
+  padding: 80px var(--pad-x);
+  background: var(--primary);
+}
+
+.cuenta-inner {
+  text-align: center;
+}
+
+.cuenta-titulo {
+  font-family: var(--font-cali);
+  font-size: clamp(2.8rem, 10vw, 4rem);
+  color: var(--white);
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.cuenta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.cuenta-bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  border-radius: var(--radius-card);
+  padding: 20px 8px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.cuenta-num {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1;
+  display: block;
+}
+
+.cuenta-label {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+}
+
+.cuenta-subtitulo {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase;
+}
+
+.cuenta-mensaje {
+  margin-top: 32px;
+  padding: 24px 20px;
+  background: rgba(255,255,255,0.2);
+  border-radius: var(--radius-card);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--white);
+  font-style: italic;
+}
+
+/* Responsive cuenta regresiva en pantallas muy pequeñas */
+@media (max-width: 340px) {
+  .cuenta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------
+   17. SECCIÓN 11 — CONFIRMACIÓN DE ASISTENCIA
+   ---------------------------------------------------------------- */
+.section-confirmacion {
+  padding: 80px var(--pad-x) 100px;
+  background: var(--primary-extra-light);
+}
+
+.sobre-confirmacion .sobre-body {
+  padding-top: 140px;
+  padding-bottom: 64px;
+}
+
+.confirmacion-card {
+  position: relative;
+  z-index: 5;
+  margin: 0 16px;
+  margin-top: -80px;
+  background: var(--white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lift);
+}
+
+.confirmacion-inner {
+  padding: 0;
+}
+
+.confirmacion-titulo {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--primary-dark);
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.confirmacion-divider {
+  margin: 0 auto 28px;
+  max-width: 200px;
+}
+
+.confirmacion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--body-text);
+  text-transform: uppercase;
+}
+
+.form-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--primary-light);
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--primary-dark);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--primary-light);
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 161, 248, 0.15);
+}
+
+.form-fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-legend {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--body-text);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+  width: 100%;
+}
+
+.radio-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1.5px solid var(--primary-light);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.radio-label:hover {
+  background: var(--primary-extra-light);
+  border-color: var(--primary);
+}
+
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-light);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: border-color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-input:checked + .radio-custom {
+  border-color: var(--primary);
+  background: var(--primary);
+  box-shadow: inset 0 0 0 4px var(--white);
+}
+
+.radio-input:focus-visible + .radio-custom {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+.radio-texto {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--body-text);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.confirmacion-aviso {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--primary);
+  min-height: 20px;
+  text-align: center;
+}
+
+.confirmacion-aviso.error {
+  color: #B04A6A;
+}
+
+.confirmacion-nota {
+  margin-top: 16px;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  color: var(--primary);
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* ----------------------------------------------------------------
+   18. SECCIÓN 12 — MENSAJE FINAL Y PIE
+   ---------------------------------------------------------------- */
+.section-final {
+  padding: 80px var(--pad-x) 60px;
+  background: var(--paper);
+}
+
+.final-inner {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.final-texto {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--body-text);
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.final-texto strong {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.final-firma {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.final-firma-nombres {
+  font-family: var(--font-cali);
+  font-size: 2rem;
+  color: var(--primary-dark);
+}
+
+.final-firma-fecha {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--primary);
+}
+
+/* ----------------------------------------------------------------
+   19. RESPONSIVE
+   ---------------------------------------------------------------- */
+
+/* 768px — Tablet */
+@media (min-width: 768px) {
+  :root {
+    --pad-x: 40px;
+  }
+
+  .section-portada {
+    background: var(--primary-extra-light);
+    padding: 40px;
+  }
+
+  .portada-inner {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+  }
+
+  .music-card,
+  .itinerario-card,
+  .dresscode-card,
+  .regalos-card {
+    padding: 56px 56px;
+  }
+
+  .tarjeta-marco {
+    padding: 56px 56px;
+  }
+
+  .confirmacion-card .tarjeta-marco {
+    padding: 48px 56px;
+  }
+}
+
+/* 1024px — Escritorio */
+@media (min-width: 1024px) {
+  .section-portada,
+  .section-musica,
+  .section-invitacion,
+  .section-frase,
+  .section-itinerario,
+  .section-monograma,
+  .section-dresscode,
+  .section-foto-pareja,
+  .section-regalos,
+  .section-cuenta,
+  .section-confirmacion,
+  .section-final {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .section-portada {
+    padding: 60px 40px;
+  }
+
+  .section-portada .portada-inner {
+    max-width: 460px;
+  }
+}
+
+/* 1440px — pantalla grande */
+@media (min-width: 1440px) {
+  .section-portada {
+    padding: 80px 40px;
+  }
+}
+
+/* 320px — móviles muy pequeños */
+@media (max-width: 360px) {
+  :root {
+    --pad-x: 16px;
+  }
+
+  .tarjeta-marco,
+  .confirmacion-card .tarjeta-marco {
+    padding: 36px 20px;
+  }
+
+  .music-card,
+  .itinerario-card,
+  .regalos-card,
+  .dresscode-card {
+    padding: 32px 20px;
+  }
+
+  .itinerario-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .sobre-container {
+    margin: 0 -4px;
+  }
+}

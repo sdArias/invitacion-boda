@@ -1,0 +1,26 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.user
+.vs/
+
+# Referencias visuales (no publicar)
+references/
+refs/
+capturas/
+screenshots/
+
+# Temporales
+*.tmp
+*.log
+*.bak
+
+# Compilación de .NET
+bin/
+obj/

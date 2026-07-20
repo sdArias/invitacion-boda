@@ -27,7 +27,7 @@ const CONFIG = {
     /* EDITAR: Padres del novio */
     padresNovio: "Luis Arias &amp; Wendy Tomlá",
     /* EDITAR: Padres de la novia */
-    padresNovia: "Ricardo Díaz &amp; Bertha Murilla",
+    padresNovia: "Ricardo Díaz &amp; Bertha Murillo",
 
     /* ── ITINERARIO ─────────────────────────────────────────────── */
     ceremonia: {
@@ -346,21 +346,6 @@ function iniciarFormularioAsistencia() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const nombre = form.querySelector("#input-nombre").value.trim();
-        const asistencia = form.querySelector('input[name="asistencia"]:checked');
-
-        // Validaciones
-        if (!nombre) {
-            mostrarAviso(aviso, "Por favor, escribe tu nombre antes de continuar.", true);
-            form.querySelector("#input-nombre").focus();
-            return;
-        }
-
-        if (!asistencia) {
-            mostrarAviso(aviso, "Por favor, indica si podrás asistir.", true);
-            return;
-        }
-
         // Todo validado — abrir Google Form
         const formUrl = CONFIG.googleFormUrl;
 
@@ -373,7 +358,7 @@ function iniciarFormularioAsistencia() {
             return;
         }
 
-        mostrarAviso(aviso, "¡Gracias! Se abrirá el formulario de confirmación en una nueva pestaña.", false);
+        //mostrarAviso(aviso, "¡Gracias! Se abrirá el formulario de confirmación en una nueva pestaña.", false);
 
         // Pequeño retardo para que el usuario lea el mensaje
         setTimeout(() => {

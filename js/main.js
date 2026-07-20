@@ -15,7 +15,7 @@ const CONFIG = {
 
     /* NOMBRES */
     novio: "Steeven",
-    novia: "Pame",
+    novia: "Pamela",
 
     /* FECHA DE LA BODA (ISO 8601, hora local) */
     fechaBoda: "2026-08-29T19:00:00",
@@ -32,7 +32,7 @@ const CONFIG = {
     /* ── ITINERARIO ─────────────────────────────────────────────── */
     ceremonia: {
         /* EDITAR: Hora de la ceremonia */
-        hora: "19:00 hrs.",
+        hora: "07:00 PM.",
         /* EDITAR: Nombre de la iglesia o lugar de la ceremonia */
         lugar: "Villa del Rey",
         /* EDITAR: Enlace de Google Maps para la ceremonia */
@@ -61,7 +61,7 @@ const CONFIG = {
 
     /* ── FORMULARIO DE ASISTENCIA ───────────────────────────────── */
     /* EDITAR: URL del Google Form de confirmación de asistencia */
-    googleFormUrl: "REEMPLAZAR_CON_URL_GOOGLE_FORM",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfp-xzrP7cy9kNhZPSC-tlqG3fAKA9M_sxPAG0LIvIpsFObhg/viewform?usp=publish-editor",
 
     /* ── AUDIO ───────────────────────────────────────────────────── */
     /* EDITAR: Ruta del archivo de audio */

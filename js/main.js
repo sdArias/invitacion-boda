@@ -18,7 +18,7 @@ const CONFIG = {
     novia: "Pame",
 
     /* FECHA DE LA BODA (ISO 8601, hora local) */
-    fechaBoda: "2026-08-29T18:00:00",
+    fechaBoda: "2026-08-29T19:00:00",
 
     /* FECHA LÍMITE PARA CONFIRMAR ASISTENCIA — editar también en index.html id="fecha-limite-display" */
     fechaLimiteConfirmacion: "15 DE AGOSTO DE 2026",
@@ -32,7 +32,7 @@ const CONFIG = {
     /* ── ITINERARIO ─────────────────────────────────────────────── */
     ceremonia: {
         /* EDITAR: Hora de la ceremonia */
-        hora: "17:00 hrs.",
+        hora: "19:00 hrs.",
         /* EDITAR: Nombre de la iglesia o lugar de la ceremonia */
         lugar: "Villa del Rey",
         /* EDITAR: Enlace de Google Maps para la ceremonia */
@@ -279,7 +279,7 @@ function desactivarReproductor(btnPlay, btnRewind, btnForward, progress, volume)
 
 function actualizarProgreso(rangeEl, pct) {
     if (!rangeEl) return;
-    rangeEl.style.background = `linear-gradient(to right, #63A1F8 ${pct}%, #DCEBFF ${pct}%)`;
+    rangeEl.style.background = `linear-gradient(to right, #1a1a1a ${pct}%, #e0e0e0 ${pct}%)`;
 }
 
 function formatTime(secs) {

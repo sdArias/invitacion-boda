@@ -7,22 +7,24 @@
    1. TOKENS DE DISEÑO (Design Tokens)
    ---------------------------------------------------------------- */
 :root {
-  --primary:             #63A1F8;
-  --primary-dark:        #315F9F;
-  --primary-light:       #DCEBFF;
-  --primary-extra-light: #F4F8FF;
-  --paper:               #FCFBF8;
+  --primary:             #1a1a1a;
+  --primary-dark:        #000000;
+  --primary-light:       #e0e0e0;
+  --primary-extra-light: #f7f6f4;
+  --paper:               #FAFAF8;
   --white:               #FFFFFF;
-  --body-text:           #315B87;
+  --body-text:           #444444;
+  --text-secondary:      #777777;
 
-  --shadow-soft: 0 4px 24px rgba(49, 95, 159, 0.12), 0 1px 6px rgba(49, 95, 159, 0.08);
-  --shadow-card: 0 8px 40px rgba(49, 95, 159, 0.15), 0 2px 8px rgba(49, 95, 159, 0.08);
-  --shadow-lift: 0 16px 60px rgba(49, 95, 159, 0.18), 0 4px 16px rgba(49, 95, 159, 0.10);
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.07), 0 1px 6px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lift: 0 16px 60px rgba(0, 0, 0, 0.10), 0 4px 16px rgba(0, 0, 0, 0.07);
 
   --radius-card: 8px;
   --radius-btn:  30px;
 
-  --font-cali:   'Great Vibes', cursive;
+  /* Allura = script elegante para nombres; Montserrat = sans-serif legible */
+  --font-cali:   'Allura', 'Cormorant Garamond', cursive;
   --font-serif:  'Cormorant Garamond', Georgia, serif;
   --font-sans:   'Montserrat', Arial, sans-serif;
 
@@ -128,12 +130,12 @@ input, textarea {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   position: relative;
-  /* Textura de papel simulada con gradientes */
+  /* Textura de papel sutil */
   background-image:
-    linear-gradient(135deg, rgba(99,161,248,0.03) 25%, transparent 25%),
-    linear-gradient(225deg, rgba(99,161,248,0.03) 25%, transparent 25%),
-    linear-gradient(315deg, rgba(99,161,248,0.03) 25%, transparent 25%),
-    linear-gradient(45deg, rgba(99,161,248,0.03) 25%, transparent 25%);
+    linear-gradient(135deg, rgba(0,0,0,0.015) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(0,0,0,0.015) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(0,0,0,0.015) 25%, transparent 25%),
+    linear-gradient(45deg,  rgba(0,0,0,0.015) 25%, transparent 25%);
   background-size: 8px 8px;
   background-color: var(--white);
 }
@@ -155,16 +157,16 @@ input, textarea {
   letter-spacing: 0.15em;
   border-radius: var(--radius-btn);
   border: none;
-  box-shadow: 0 4px 16px rgba(99, 161, 248, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   cursor: pointer;
 }
 
 .btn-primario:hover,
 .btn-primario:focus-visible {
-  background: var(--primary-dark);
+  background: #333333;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(49, 95, 159, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   outline: 3px solid var(--primary-light);
 }
 
@@ -228,7 +230,7 @@ input, textarea {
    7. SECCIÓN 1 — PORTADA FOTOGRÁFICA
    ---------------------------------------------------------------- */
 .section-portada {
-  background: var(--primary-extra-light);
+  background: #e8e8e8;
   min-height: 70svh;
   padding: 0;
 }
@@ -265,9 +267,9 @@ input, textarea {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    transparent 40%,
-    rgba(49, 95, 159, 0.15) 65%,
-    rgba(49, 95, 159, 0.55) 100%
+    transparent 35%,
+    rgba(0, 0, 0, 0.10) 60%,
+    rgba(0, 0, 0, 0.65) 100%
   );
 }
 
@@ -292,14 +294,45 @@ input, textarea {
   margin-bottom: 12px;
 }
 
+/* Portada: estructura nombres + apellidos */
 .portada-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
   font-family: var(--font-cali);
-  font-size: clamp(3rem, 12vw, 5.5rem);
   font-weight: 400;
   color: var(--white);
-  text-shadow: 0 2px 20px rgba(49, 95, 159, 0.4);
-  line-height: 1.1;
-  margin-bottom: 10px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.portada-nombre {
+  font-size: clamp(2.8rem, 11vw, 5rem);
+  line-height: 1;
+  display: block;
+}
+
+.portada-apellido {
+  font-family: var(--font-sans);
+  font-size: clamp(0.65rem, 2.5vw, 0.9rem);
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  display: block;
+  margin-top: 2px;
+}
+
+/* El & en la portada */
+.portada-amp {
+  font-family: var(--font-cali);
+  font-size: clamp(1.8rem, 7vw, 3rem);
+  color: rgba(255,255,255,0.75);
+  display: block;
+  line-height: 0.9;
+  margin: 4px 0;
 }
 
 .portada-date {
@@ -309,6 +342,16 @@ input, textarea {
   font-weight: 300;
   letter-spacing: 0.3em;
   color: rgba(255,255,255,0.9);
+  margin-bottom: 6px;
+}
+
+.portada-time {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.80);
 }
 
 /* ----------------------------------------------------------------
@@ -329,7 +372,7 @@ input, textarea {
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: var(--primary);
+  color: var(--body-text);
   text-transform: uppercase;
   margin-bottom: 28px;
 }
@@ -362,7 +405,7 @@ input, textarea {
 .music-artist {
   font-family: var(--font-sans);
   font-size: 0.7rem;
-  color: var(--primary);
+  color: var(--body-text);
   letter-spacing: 0.12em;
   font-weight: 400;
 }
@@ -399,7 +442,7 @@ input, textarea {
   height: 14px;
   border-radius: 50%;
   background: var(--primary);
-  box-shadow: 0 2px 6px rgba(99, 161, 248, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
   cursor: pointer;
 }
 
@@ -454,7 +497,7 @@ input, textarea {
   height: 60px;
   background: var(--primary);
   color: var(--white);
-  box-shadow: 0 4px 16px rgba(99, 161, 248, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
 .music-btn-main svg {
@@ -463,7 +506,7 @@ input, textarea {
 }
 
 .music-btn-main:hover {
-  background: var(--primary-dark);
+  background: #333333;
   transform: scale(1.08);
 }
 
@@ -521,7 +564,7 @@ input, textarea {
    ---------------------------------------------------------------- */
 .section-invitacion {
   padding: 80px var(--pad-x) 100px;
-  background: var(--primary-extra-light);
+  background: #ededeb;
 }
 
 .sobre-container {
@@ -539,7 +582,7 @@ input, textarea {
 
 .sobre-body {
   width: 100%;
-  background: var(--primary);
+  background: #2a2a2a;
   border-radius: 4px 4px 8px 8px;
   padding-top: 120px;
   padding-bottom: 48px;
@@ -557,7 +600,7 @@ input, textarea {
   height: 0;
   border-left: 50% solid transparent;
   border-right: 50% solid transparent;
-  border-top: 100px solid #4E8FE0;
+  border-top: 100px solid #1a1a1a;
   z-index: 2;
 }
 
@@ -570,7 +613,7 @@ input, textarea {
   height: 0;
   border-left: 50% solid transparent;
   border-right: 50% solid transparent;
-  border-bottom: 60px solid #3B7AD4;
+  border-bottom: 60px solid #111111;
   z-index: 1;
 }
 
@@ -683,24 +726,48 @@ input, textarea {
   font-size: clamp(2.8rem, 10vw, 4rem);
   font-weight: 400;
   color: var(--primary-dark);
-  line-height: 1;
+  line-height: 1.05;
+  /* sin margin-top inline */
+}
+
+/* Apellidos dentro de la tarjeta */
+.tarjeta-apellido {
+  font-family: var(--font-sans);
+  font-size: clamp(0.55rem, 2vw, 0.75rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+  color: var(--body-text);
+  margin-top: 2px;
 }
 
 .tarjeta-amp {
-  font-family: var(--font-serif);
-  font-size: 2.1rem;
+  font-family: var(--font-cali);
+  font-size: 2.4rem;
   color: var(--primary);
-  margin: 8px 0;
-  font-style: italic;
+  margin: 10px 0;
+  line-height: 1;
+  font-style: normal;
 }
 
 .tarjeta-fecha {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   color: var(--primary-dark);
-  margin: 20px 0 8px;
+  margin: 20px 0 4px;
+  text-transform: uppercase;
+}
+
+.tarjeta-hora-evento {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--body-text);
+  margin: 0 0 8px;
 }
 
 .tarjeta-hora,
@@ -779,16 +846,22 @@ input, textarea {
   font-weight: 400;
 }
 
+/* Centra completamente el itinerario */
 .itinerario-item {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
   padding: 24px 0;
 }
 
 .itinerario-icono {
   flex-shrink: 0;
   width: 60px;
+  display: flex;
+  justify-content: center;
+  color: var(--body-text);
 }
 
 .itinerario-icono svg {
@@ -814,14 +887,14 @@ input, textarea {
   font-family: var(--font-serif);
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--body-text);
   margin-bottom: 4px;
 }
 
 .itinerario-lugar {
   font-family: var(--font-serif);
   font-size: 0.9rem;
-  color: var(--body-text);
+  color: var(--text-secondary);
   font-style: italic;
   line-height: 1.5;
 }
@@ -893,7 +966,7 @@ input, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 28px rgba(99, 161, 248, 0.4);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
 }
 
 .dresscode-oval-text {
@@ -921,7 +994,7 @@ input, textarea {
 .borla-cuerda {
   width: 2px;
   height: 24px;
-  background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+  background: linear-gradient(to bottom, var(--primary), #333333);
 }
 
 .borla-flecos {
@@ -956,10 +1029,9 @@ input, textarea {
 
 .dresscode-desc {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--body-text);
-  line-height: 1.8;
-  font-style: italic;
+  line-height: 2;
   margin-bottom: 28px;
 }
 
@@ -997,7 +1069,7 @@ input, textarea {
    ---------------------------------------------------------------- */
 .section-foto-pareja {
   padding: 80px var(--pad-x) 0;
-  background: var(--primary-extra-light);
+  background: #ededeb;
   gap: 40px;
 }
 
@@ -1109,7 +1181,7 @@ input, textarea {
    ---------------------------------------------------------------- */
 .section-cuenta {
   padding: 80px var(--pad-x);
-  background: var(--primary);
+  background: #1a1a1a;
 }
 
 .cuenta-inner {
@@ -1194,7 +1266,7 @@ input, textarea {
    ---------------------------------------------------------------- */
 .section-confirmacion {
   padding: 80px var(--pad-x) 100px;
-  background: var(--primary-extra-light);
+  background: #ededeb;
 }
 
 .sobre-confirmacion .sobre-body {
@@ -1517,12 +1589,7 @@ input, textarea {
     padding: 32px 20px;
   }
 
-  .itinerario-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-  }
+  /* En móviles pequeños el itinerario ya es columna, sin cambio adicional */
 
   .sobre-container {
     margin: 0 -4px;

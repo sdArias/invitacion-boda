@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
           content="Invitación de boda de Steeven &amp; Pame — 29 de agosto de 2026. Únete a nosotros en este día tan especial." />
-    <meta name="theme-color" content="#63A1F8" />
+    <meta name="theme-color" content="#1a1a1a" />
     <title>Steeven &amp; Pame · 29.08.2026</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Allura (script) + Montserrat (sans-serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
           rel="stylesheet" />
 
     <link rel="stylesheet" href="./css/styles.css" />
@@ -31,12 +31,12 @@
                      onerror="this.classList.add('hidden'); document.getElementById('portada-placeholder').classList.remove('hidden')" />
                 <div id="portada-placeholder" class="portada-placeholder hidden" aria-hidden="true">
                     <svg viewBox="0 0 520 780" xmlns="http://www.w3.org/2000/svg" class="portada-svg-placeholder">
-                        <rect width="520" height="780" fill="#DCEBFF" />
+                        <rect width="520" height="780" fill="#d0d0d0" />
                         <rect x="0" y="0" width="520" height="780" fill="url(#grad-portada)" opacity="0.6" />
                         <defs>
                             <linearGradient id="grad-portada" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#63A1F8" stop-opacity="0.3" />
-                                <stop offset="100%" stop-color="#315F9F" stop-opacity="0.7" />
+                                <stop offset="0%" stop-color="#666666" stop-opacity="0.3" />
+                                <stop offset="100%" stop-color="#111111" stop-opacity="0.7" />
                             </linearGradient>
                         </defs>
                         <!-- Decorative rings -->
@@ -51,8 +51,13 @@
             </div>
             <div class="portada-names">
                 <span class="portada-label">Los invitamos a nuestra boda</span>
-                <h1 class="portada-title">Steeven &amp; Pame</h1>
+                <h1 class="portada-title">
+                    <span class="portada-nombre">Steeven </span>
+                    <span class="portada-amp">&amp;</span>
+                    <span class="portada-nombre">Pame </span>
+                </h1>
                 <span class="portada-date">29 · 08 · 2026</span>
+                <span class="portada-time">19:00 h</span>
             </div>
         </div>
     </section>
@@ -66,10 +71,10 @@
             <div class="music-player" role="group" aria-label="Controles de reproducción">
                 <div class="music-artwork" aria-hidden="true">
                     <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="40" cy="40" r="38" fill="#DCEBFF" stroke="#63A1F8" stroke-width="1.5" />
-                        <circle cx="40" cy="40" r="20" fill="#63A1F8" opacity="0.15" />
-                        <circle cx="40" cy="40" r="5" fill="#63A1F8" />
-                        <path d="M34 28 L34 52 L56 40 Z" fill="#63A1F8" />
+                        <circle cx="40" cy="40" r="38" fill="#eeeeee" stroke="#1a1a1a" stroke-width="1.5" />
+                        <circle cx="40" cy="40" r="20" fill="#1a1a1a" opacity="0.10" />
+                        <circle cx="40" cy="40" r="5" fill="#1a1a1a" />
+                        <path d="M34 28 L34 52 L56 40 Z" fill="#1a1a1a" />
                     </svg>
                 </div>
                 <div class="music-info">
@@ -109,19 +114,20 @@
                         </svg>
                     </button>
                 </div>
-                <div class="music-volume-wrap">
-                    <svg class="volume-icon" viewBox="0 0 24 24" fill="none" stroke="#63A1F8" stroke-width="2" aria-hidden="true">
+                <!-- Control de volumen oculto intencionalmente (diseño minimalista) -->
+                <div class="music-volume-wrap hidden" aria-hidden="true">
+                    <svg class="volume-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
                         <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
                         <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
                     </svg>
                     <input type="range" id="music-volume" class="music-volume" min="0" max="1" value="0.8" step="0.01"
-                           aria-label="Volumen" />
+                           aria-label="Volumen" tabindex="-1" />
                 </div>
             </div>
             <audio id="audio-player" preload="none">
                 <!-- Fuente de audio: reemplazar ./assets/audio/nuestra-cancion.mp3 -->
-                <source src="./assets/audio/nuestra-cancion.mp3" type="audio/mpeg" />
+                <source src="./assets/audio/Cristian Castro - Azul.mp3" type="audio/mpeg" />
             </audio>
         </div>
     </section>
@@ -141,12 +147,12 @@
                 <!-- Sello decorativo -->
                 <div class="sello">
                     <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="40" cy="40" r="36" fill="#DCEBFF" stroke="#63A1F8" stroke-width="2" />
-                        <circle cx="40" cy="40" r="28" fill="none" stroke="#63A1F8" stroke-width="1" stroke-dasharray="3 2" />
-                        <text x="40" y="38" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="18"
-                              fill="#315F9F">S</text>
-                        <text x="40" y="56" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="18"
-                              fill="#315F9F">P</text>
+                        <circle cx="40" cy="40" r="36" fill="#eeeeee" stroke="#1a1a1a" stroke-width="2" />
+                        <circle cx="40" cy="40" r="28" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="3 2" />
+                        <text x="40" y="38" text-anchor="middle" font-family="'Allura', cursive" font-size="18"
+                              fill="#1a1a1a">S</text>
+                        <text x="40" y="56" text-anchor="middle" font-family="'Allura', cursive" font-size="18"
+                              fill="#1a1a1a">P</text>
                     </svg>
                 </div>
             </div>
@@ -167,12 +173,13 @@
                             <span id="padre-novia">Ricardo Díaz &amp; Bertha Murillo</span>
                         </p>
                         <div class="itinerario-separador" aria-hidden="true"></div>
-                        <p class="tarjeta-honor">TENEMOS EL HONOR DE INVITARTE A LA BODA DE</p>
-                        <h2 class="tarjeta-novio">Steeven</h2>
+                        <p class="tarjeta-honor">Tenemos el honor de invitarte a la boda de</p>
+                        <h2 class="tarjeta-novio">Steeven <span class="tarjeta-novia">Arias</span></h2>
                         <p class="tarjeta-amp">&amp;</p>
-                        <h2 class="tarjeta-novia" style="margin-top: 20px">Pame</h2>
+                        <h2 class="tarjeta-novia">Pame <span class="tarjeta-novia">Díaz</span></h2>
                         <div class="itinerario-separador" aria-hidden="true"></div>
-                        <p class="tarjeta-fecha">29 AGOSTO 2026</p>
+                        <p class="tarjeta-fecha">29 Agosto 2026</p>
+                        <p class="tarjeta-hora-evento">19:00 h</p>
                     </div>
                 </div>
             </article>
@@ -203,16 +210,16 @@
                 <div class="itinerario-icono" aria-hidden="true">
                     <!-- Ilustración original: iglesia -->
                     <svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg" class="ilust-iglesia">
-                        <line x1="30" y1="2" x2="30" y2="14" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <line x1="24" y1="8" x2="36" y2="8" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <polygon points="10,26 30,14 50,26" fill="none" stroke="#63A1F8" stroke-width="1.5"
+                        <line x1="30" y1="2" x2="30" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <line x1="24" y1="8" x2="36" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <polygon points="10,26 30,14 50,26" fill="none" stroke="currentColor" stroke-width="1.5"
                                  stroke-linejoin="round" />
-                        <rect x="12" y="26" width="36" height="34" fill="none" stroke="#63A1F8" stroke-width="1.5"
+                        <rect x="12" y="26" width="36" height="34" fill="none" stroke="currentColor" stroke-width="1.5"
                               stroke-linejoin="round" />
-                        <rect x="22" y="44" width="16" height="16" fill="none" stroke="#63A1F8" stroke-width="1.2" />
-                        <path d="M30 44 Q30 38 30 38" fill="none" stroke="#63A1F8" stroke-width="1" />
-                        <rect x="17" y="30" width="10" height="10" rx="5" fill="none" stroke="#63A1F8" stroke-width="1.2" />
-                        <rect x="33" y="30" width="10" height="10" rx="5" fill="none" stroke="#63A1F8" stroke-width="1.2" />
+                        <rect x="22" y="44" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" />
+                        <path d="M30 44 Q30 38 30 38" fill="none" stroke="currentColor" stroke-width="1" />
+                        <rect x="17" y="30" width="10" height="10" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                        <rect x="33" y="30" width="10" height="10" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" />
                     </svg>
                 </div>
                 <div class="itinerario-info">
@@ -226,41 +233,41 @@
 
             <div class="itinerario-separador" aria-hidden="true"></div>
 
-            <div class="itinerario-item">
-                <div class="itinerario-icono" aria-hidden="true">
+            <!--<div class="itinerario-item">
+                <div class="itinerario-icono" aria-hidden="true">-->
                     <!-- Ilustración original: pareja bailando -->
-                    <svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg" class="ilust-baile">
+                    <!--<svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg" class="ilust-baile">-->
                         <!-- Figura 1 -->
-                        <circle cx="22" cy="16" r="5" fill="none" stroke="#63A1F8" stroke-width="1.5" />
-                        <path d="M22 21 L22 40" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M22 28 L14 34" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M22 28 L30 30" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M22 40 L16 54" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M22 40 L28 54" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
+                        <!--<circle cx="22" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M22 21 L22 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M22 28 L14 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M22 28 L30 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M22 40 L16 54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M22 40 L28 54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />-->
                         <!-- Figura 2 -->
-                        <circle cx="40" cy="14" r="5" fill="none" stroke="#63A1F8" stroke-width="1.5" />
-                        <path d="M40 19 L38 40" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M39 27 L30 30" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M39 27 L48 24" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M38 40 L32 54" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M38 40 L44 54" stroke="#63A1F8" stroke-width="1.5" stroke-linecap="round" />
+                        <!--<circle cx="40" cy="14" r="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M40 19 L38 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M39 27 L30 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M39 27 L48 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M38 40 L32 54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M38 40 L44 54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />-->
                         <!-- Nota musical -->
-                        <path d="M50 10 L50 18 M50 10 L55 8 L55 16" stroke="#63A1F8" stroke-width="1" stroke-linecap="round"
+                        <!--<path d="M50 10 L50 18 M50 10 L55 8 L55 16" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                               fill="none" />
-                        <circle cx="49" cy="18" r="2" fill="#63A1F8" />
-                        <circle cx="54" cy="16" r="2" fill="#63A1F8" />
+                        <circle cx="49" cy="18" r="2" fill="currentColor" />
+                        <circle cx="54" cy="16" r="2" fill="currentColor" />
                     </svg>
                 </div>
                 <div class="itinerario-info">
-                    <h3 class="itinerario-nombre">Recepción</h3>
+                    <h3 class="itinerario-nombre">Recepción</h3>-->
                     <!-- EDITAR: Hora de la recepción -->
-                    <p class="itinerario-hora" id="hora-recepcion"><!-- HORA PROVISIONAL --> 18:30 hrs.</p>
+                    <!--<p class="itinerario-hora" id="hora-recepcion">--><!-- HORA PROVISIONAL --> <!--18:30 hrs.</p>-->
                     <!-- EDITAR: Lugar de la recepción -->
-                    <p class="itinerario-lugar" id="lugar-recepcion"><!-- LUGAR PROVISIONAL --> Salón por confirmar</p>
+                    <!--<p class="itinerario-lugar" id="lugar-recepcion">--><!-- LUGAR PROVISIONAL --> <!--Salón por confirmar</p>
                 </div>
 
             </div>
-            <div class="itinerario-separador" aria-hidden="true"></div>
+            <div class="itinerario-separador" aria-hidden="true"></div>-->
 
             <div class="itinerario-item itinerario-item-ubicacion">
                 <a id="link-recepcion"
@@ -282,13 +289,13 @@
         <div class="monograma-wrap" aria-hidden="true">
             <div class="monograma-oval">
                 <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" class="monograma-svg">
-                    <ellipse cx="100" cy="140" rx="95" ry="130" fill="#63A1F8" />
-                    <ellipse cx="100" cy="140" rx="80" ry="115" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4" />
-                    <text x="100" y="120" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="52" fill="#ffffff"
+                    <ellipse cx="100" cy="140" rx="95" ry="130" fill="#1a1a1a" />
+                    <ellipse cx="100" cy="140" rx="80" ry="115" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3" />
+                    <text x="100" y="120" text-anchor="middle" font-family="'Allura', cursive" font-size="52" fill="#ffffff"
                           opacity="0.95">S</text>
                     <text x="100" y="150" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="20"
                           fill="#ffffff" opacity="0.7">&amp;</text>
-                    <text x="100" y="195" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="52" fill="#ffffff"
+                    <text x="100" y="195" text-anchor="middle" font-family="'Allura', cursive" font-size="52" fill="#ffffff"
                           opacity="0.95">P</text>
                 </svg>
             </div>
@@ -304,7 +311,7 @@
             <!-- Óvalo con título -->
             <div class="dresscode-oval-wrap" aria-hidden="true">
                 <div class="dresscode-oval">
-                    <span class="dresscode-oval-text">Dress Code</span>
+                    <span class="dresscode-oval-text">Vestimenta</span>
                 </div>
                 <!-- Borla decorativa CSS -->
                 <div class="borla" aria-hidden="true">
@@ -323,8 +330,8 @@
                 <!-- EDITAR: Descripción del dress code -->
                 <p class="dresscode-desc">
                     Les pedimos asistir con vestimenta formal de noche.<br />
-                    Ellas: vestido largo o coctel elegante.<br />
-                    Ellos: formal elegante.
+                    <strong>Damas:</strong> vestido largo o cóctel elegante.<br />
+                    <strong>Caballeros:</strong> traje formal.
                 </p>
             </div>
         </div>
@@ -347,17 +354,17 @@
                  onerror="this.classList.add('hidden'); document.getElementById('pareja-placeholder').classList.remove('hidden')" />
             <div id="pareja-placeholder" class="foto-placeholder hidden" aria-hidden="true">
                 <svg viewBox="0 0 520 680" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-                    <rect width="520" height="680" fill="#DCEBFF" />
+                    <rect width="520" height="680" fill="#d0d0d0" />
                     <rect width="520" height="680" fill="url(#grad-pareja)" opacity="0.5" />
                     <defs>
                         <linearGradient id="grad-pareja" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#63A1F8" stop-opacity="0.2" />
-                            <stop offset="100%" stop-color="#315F9F" stop-opacity="0.5" />
+                            <stop offset="0%" stop-color="#666666" stop-opacity="0.2" />
+                            <stop offset="100%" stop-color="#111111" stop-opacity="0.5" />
                         </linearGradient>
                     </defs>
                     <path d="M260 310 C260 310 200 270 200 236 C200 214 216 200 240 200 C252 200 260 208 260 216 C260 208 268 200 280 200 C304 200 320 214 320 236 C320 270 260 310 260 310Z"
-                          fill="#63A1F8" opacity="0.5" />
-                    <text x="260" y="380" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="36" fill="#315F9F"
+                          fill="#444444" opacity="0.4" />
+                    <text x="260" y="380" text-anchor="middle" font-family="'Allura', cursive" font-size="36" fill="#222222"
                           opacity="0.6">Steeven &amp; Pame</text>
                 </svg>
             </div>
@@ -370,12 +377,12 @@
     <section id="regalos" class="section-regalos reveal" aria-label="Información sobre regalos">
         <div class="regalos-container">
             <div class="card-paper regalos-card">
-                <div class="regalos-sello" aria-hidden="true">
+                <div id="regalos-sello" class="regalos-sello" aria-hidden="true">
                     <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="35" cy="35" r="32" fill="#DCEBFF" stroke="#63A1F8" stroke-width="1.5" />
-                        <circle cx="35" cy="35" r="24" fill="none" stroke="#63A1F8" stroke-width="0.8" stroke-dasharray="3 2" />
-                        <path d="M35 20 L37 28 L45 28 L39 33 L41 41 L35 36 L29 41 L31 33 L25 28 L33 28 Z" fill="#63A1F8"
-                              opacity="0.8" />
+                        <circle cx="35" cy="35" r="32" fill="#eeeeee" stroke="#1a1a1a" stroke-width="1.5" />
+                        <circle cx="35" cy="35" r="24" fill="none" stroke="#1a1a1a" stroke-width="0.8" stroke-dasharray="3 2" />
+                        <path d="M35 20 L37 28 L45 28 L39 33 L41 41 L35 36 L29 41 L31 33 L25 28 L33 28 Z" fill="#1a1a1a"
+                              opacity="0.7" />
                     </svg>
                 </div>
                 <h2 class="regalos-titulo">Regalos</h2>
@@ -490,12 +497,10 @@
             <div class="itinerario-separador" aria-hidden="true"></div>
             <!-- EDITAR: fecha límite de confirmación -->
             <p class="final-texto" id="texto-final">
-                CON MUCHO CARIÑO, AGRADECEREMOS NOS CONFIRMES TU ASISTENCIA ANTES DEL
-                <strong id="fecha-limite-display"><!-- FECHA LÍMITE PROVISIONAL --> 15 DE JULIO DE 2026</strong>.
+                CON MUCHO CARIÑO, AGRADECEREMOS NOS CONFIRMES TU ASISTENCIA.
             </p>
             <div class="final-firma">
                 <span class="final-firma-nombres">Steeven &amp; Pame</span>
-                <span class="final-firma-fecha">29.08.2026</span>
             </div>
             <div class="itinerario-separador" aria-hidden="true"></div>
         </div>
